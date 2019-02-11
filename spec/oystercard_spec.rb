@@ -17,4 +17,11 @@ describe Oystercard do
 
     expect(@oystercard.balance - initial_balance).to eq(10)
   end
+
+  it "should not be able to top up beyond £90." do
+    @oystercard.top_up(90)
+
+    expect { @oystercard.top_up(0.001) }.to raise_error("The card is full")
+
+  end
 end
