@@ -1,6 +1,7 @@
 class Oystercard
   attr_reader :balance
   DEFAULT_BALANCE = 0
+  ACCOUNT_CAPACITY = 90
 
   def initialize
     @balance = DEFAULT_BALANCE
@@ -12,7 +13,7 @@ class Oystercard
   end
 
   def check_full(amount)
-    raise "The card is full" if amount + @balance > 90
+    raise "The is not able to top up more than #{ACCOUNT_CAPACITY} pounds." if amount + @balance > ACCOUNT_CAPACITY
   end
 
 end

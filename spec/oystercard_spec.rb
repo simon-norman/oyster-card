@@ -21,7 +21,7 @@ describe Oystercard do
   it "should not be able to top up beyond £90." do
     @oystercard.top_up(90)
 
-    expect { @oystercard.top_up(0.001) }.to raise_error("The card is full")
+    expect { @oystercard.top_up(0.001) }.to raise_error("The is not able to top up more than #{Oystercard::ACCOUNT_CAPACITY} pounds.")
 
   end
 end
