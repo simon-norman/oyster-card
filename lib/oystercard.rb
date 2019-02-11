@@ -26,6 +26,10 @@ class Oystercard
     raise "The is not able to top up more than #{ACCOUNT_CAPACITY} pounds." if amount + @balance > ACCOUNT_CAPACITY
   end
 
+  def touch_out
+    @in_journey = false
+  end
+
   def deduct(amount)
     @balance -= amount
   end

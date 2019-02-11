@@ -40,4 +40,10 @@ describe Oystercard do
 
     expect(@oystercard.in_journey).to be true
   end
+
+  it "should change the in_journey status from true to false when it is touched out." do
+    @oystercard.touch_in
+    @oystercard.touch_out
+    expect(@oystercard.in_journey).to be false
+  end
 end
