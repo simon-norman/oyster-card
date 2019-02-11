@@ -1,5 +1,6 @@
 class Oystercard
-  attr_reader :balance
+
+  attr_reader :balance, :in_journey
   DEFAULT_BALANCE = 0
   ACCOUNT_CAPACITY = 90
 
@@ -10,6 +11,10 @@ class Oystercard
 
   def in_journey?
     @in_journey
+  end
+
+  def touch_in
+    @in_journey = true
   end
 
   def top_up(amount)

@@ -34,4 +34,10 @@ describe Oystercard do
   it 'should return the current journey status' do
     expect(@oystercard.in_journey?).to eq(false)
   end
+
+  it "should return return the current journey status when it is touched_in as true." do
+    @oystercard.touch_in()
+
+    expect(@oystercard.in_journey).to eq true
+  end
 end
