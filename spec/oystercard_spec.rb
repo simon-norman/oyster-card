@@ -18,10 +18,20 @@ describe Oystercard do
     expect(@oystercard.balance - initial_balance).to eq(10)
   end
 
-  it "should not be able to top up beyond £90." do
+  it 'should not be able to top up beyond £90.' do
     @oystercard.top_up(90)
 
     expect { @oystercard.top_up(0.001) }.to raise_error("The is not able to top up more than #{Oystercard::ACCOUNT_CAPACITY} pounds.")
+  end
 
+  it 'should deduct balance by the specified amount' do
+    initial_balance = @oystercard.balance
+    @oystercard.deduct(10)
+
+    expect(@oystercard.balance).to eq(initial_balance - 10)
+  end
+
+  it 'should return the current journey status' do
+    expect(@oystercard.in_journey?).to eq(false)
   end
 end

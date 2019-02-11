@@ -5,6 +5,11 @@ class Oystercard
 
   def initialize
     @balance = DEFAULT_BALANCE
+    @in_journey = false
+  end
+
+  def in_journey?
+    @in_journey
   end
 
   def top_up(amount)
@@ -16,4 +21,7 @@ class Oystercard
     raise "The is not able to top up more than #{ACCOUNT_CAPACITY} pounds." if amount + @balance > ACCOUNT_CAPACITY
   end
 
+  def deduct(amount)
+    @balance -= amount
+  end
 end
